@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx6tqbtqr1xel"]
+
+[ext_resource type="Script" uid="uid://di3ug24dvx12h" path="res://addons/MultiplayCore/MultiPlay.gd" id="1_mamjp"]
+[ext_resource type="PackedScene" uid="uid://ctsrtq0g6kkm0" path="res://scenes/doggy.tscn" id="2_pyn6m"]
+[ext_resource type="PackedScene" uid="uid://du6kkgky6v1mv" path="res://scenes/game.tscn" id="3_gcj2u"]
+[ext_resource type="Script" uid="uid://cno834x5pb23i" path="res://addons/MultiplayCore/net_protocols/ENetProtocol.gd" id="4_26usl"]
+
+[node name="Multiplayer" type="Node2D"]
+
+[node name="MultiPlayCore" type="Node" parent="."]
+script = ExtResource("1_mamjp")
+player_scene = ExtResource("2_pyn6m")
+first_scene = ExtResource("3_gcj2u")
+metadata/_custom_type_script = "uid://di3ug24dvx12h"
+
+[node name="ENetProtocol" type="Node" parent="MultiPlayCore"]
+script = ExtResource("4_26usl")
+metadata/_custom_type_script = "uid://cno834x5pb23i"
