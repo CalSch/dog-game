@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2uvw4m23av3t"]
+
+[ext_resource type="Script" uid="uid://65ftmscrs22n" path="res://scenes/dust.gd" id="1_c43mm"]
+
+[sub_resource type="Curve" id="Curve_mb6vx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.76764, 0.0, 0, 0]
+point_count = 2
+
+[node name="Dust" type="Node2D"]
+script = ExtResource("1_c43mm")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(5, 5)
+emitting = false
+lifetime = 2.0
+one_shot = true
+speed_scale = 5.0
+explosiveness = 0.89
+direction = Vector2(0, -1)
+spread = 100.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+angular_velocity_max = 351.0
+scale_amount_min = 3.75
+scale_amount_max = 4.5
+scale_amount_curve = SubResource("Curve_mb6vx")
+color = Color(0.517647, 0.32549, 0.129412, 0.541176)
+
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

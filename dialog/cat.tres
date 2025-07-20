@@ -1,0 +1,287 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://d081io411ia7u"]
+
+[ext_resource type="Script" uid="uid://drjlhw1u6ywxp" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_vttc7"]
+
+[resource]
+script = ExtResource("1_vttc7")
+starts = {
+"main": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-120, 320),
+"start_id": "main"
+},
+&"1_1": {
+"dialogue": "yo",
+"offset": Vector2(140, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_10": {
+"dialogue": "ikr? pretty cool",
+"offset": Vector2(1700, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_11": {
+"dialogue": "ur weird bro sybau",
+"offset": Vector2(1727.84, 531.151),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_12": {
+"dialogue": "anyways, if you want to get in that house you have to do me a favor",
+"offset": Vector2(2160, 420),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": " sure"
+},
+1: {
+"condition": {},
+"link": &"1_15",
+"text": "nah"
+}
+},
+"size": Vector2(340, 320),
+"speaker": "cat"
+},
+&"1_13": {
+"dialogue": "could you get me some coal from the mine? i need it for a potion ",
+"offset": Vector2(2603.11, 309.799),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": "uhh, kinda weird but ok"
+}
+},
+"size": Vector2(300, 280),
+"speaker": "cat"
+},
+&"1_14": {
+"dialogue": "thanks bro",
+"offset": Vector2(2940, 340),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_15": {
+"dialogue": "dang",
+"offset": Vector2(2600, 640),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_16": {
+"dialogue": "alright, smell you later  ",
+"offset": Vector2(2940, 660),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_17": {
+"dialogue": "highscore: {{!meows}}",
+"offset": Vector2(573.391, 711.586),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_2": {
+"dialogue": "sup",
+"offset": Vector2(500, 260),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": "hi cat"
+},
+1: {
+"condition": {},
+"link": &"1_5",
+"text": "who are you"
+},
+2: {
+"condition": {},
+"link": &"1_3",
+"text": "woof"
+},
+3: {
+"condition": {},
+"link": &"1_17",
+"text": "highscore"
+}
+},
+"size": Vector2(300, 308),
+"speaker": "cat"
+},
+&"1_3": {
+"dialogue": "meow",
+"offset": Vector2(880, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": "woof"
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_4": {
+"dialogue": "meow",
+"offset": Vector2(1300, 620),
+"options": {
+0: {
+"condition": {},
+"link": &"4_1",
+"text": "woof"
+},
+1: {
+"condition": {},
+"link": "END",
+"text": "ok bye"
+}
+},
+"size": Vector2(300, 273),
+"speaker": "cat"
+},
+&"1_5": {
+"dialogue": "im cat",
+"offset": Vector2(940, 220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_6": {
+"dialogue": "i live in that old house over there",
+"offset": Vector2(1280, 220),
+"options": {
+0: {
+"condition": {},
+"link": &"1_10",
+"text": "sounds chill"
+},
+1: {
+"condition": {},
+"link": &"1_11",
+"text": "weird"
+}
+},
+"size": Vector2(320, 280),
+"speaker": "cat"
+},
+&"1_7": {
+"dialogue": "hi",
+"offset": Vector2(880, -80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_8": {
+"dialogue": "uhh...",
+"offset": Vector2(1220, -80),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"1_9": {
+"dialogue": "bye",
+"offset": Vector2(1560, -80),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "cat"
+},
+&"3_1": {
+"link": "END",
+"offset": Vector2(3320, 420),
+"signalValue": "coal_quest"
+},
+&"4_1": {
+"link": &"1_4",
+"offset": Vector2(1300, 920),
+"type": 1,
+"value": "1",
+"variable": "!meows"
+}
+}
+variables = {
+"!meows": {
+"type": 2,
+"value": 0
+}
+}
+strays = Array[String]([])
+characters = ""

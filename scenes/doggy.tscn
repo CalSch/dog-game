@@ -1,9 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://ctsrtq0g6kkm0"]
+[gd_scene load_steps=25 format=3 uid="uid://ctsrtq0g6kkm0"]
 
 [ext_resource type="Texture2D" uid="uid://mrn4bhkgp8dl" path="res://img/spritesheet_white.png" id="1_aef60"]
 [ext_resource type="Script" uid="uid://c6gvwjcuf5a7u" path="res://scenes/doggy.gd" id="1_gepih"]
+[ext_resource type="Shader" uid="uid://cruwk2a14hva7" path="res://addons/eye_dropper/eye_dropper.gdshader" id="2_ftpat"]
 [ext_resource type="Script" uid="uid://bu4cirurb76q1" path="res://scripts/camera_follow.gd" id="2_gepih"]
 [ext_resource type="Script" uid="uid://bi760fyjpo8sg" path="res://scripts/doggy_movement.gd" id="3_ftpat"]
+[ext_resource type="Script" uid="uid://chg7bb5lwu5oc" path="res://scripts/palette_swap.gd" id="4_vw374"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vw374"]
+shader = ExtResource("2_ftpat")
+shader_parameter/palette_array_size = 4
+shader_parameter/input_palette_array = PackedColorArray(0.937255, 0.929412, 0.894118, 1, 0.858824, 0.839216, 0.807843, 1, 0.760784, 0.729412, 0.698039, 1, 0.682353, 0.65098, 0.619608, 1, 0.286275, 0.278431, 0.27451, 1, 0.109804, 0.109804, 0.109804, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+shader_parameter/output_palette_array = PackedColorArray(0.690196, 0.937255, 0.592157, 1, 0.45472, 0.87717, 0.641265, 1, 0.331736, 0.804064, 0.577633, 1, 0.154214, 0.540531, 0.362657, 1, 0, 0.245883, 0.405983, 1, 0.361174, 0.506716, 0.00227803, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vef74"]
 atlas = ExtResource("1_aef60")
@@ -137,14 +145,23 @@ properties/2/replication_mode = 1
 properties/3/path = NodePath("AnimatedSprite2D:animation")
 properties/3/spawn = true
 properties/3/replication_mode = 1
+properties/4/path = NodePath("AnimatedSprite2D:current_palette")
+properties/4/spawn = true
+properties/4/replication_mode = 1
 
-[node name="Doggy" type="CharacterBody2D"]
+[node name="Doggy" type="CharacterBody2D" groups=["player"]]
+floor_stop_on_slope = false
+platform_on_leave = 2
 script = ExtResource("1_gepih")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_vw374")
 sprite_frames = SubResource("SpriteFrames_vef74")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
+script = ExtResource("4_vw374")
+palettes = Array[PackedColorArray]([PackedColorArray(0.937255, 0.929412, 0.894118, 1, 0.858824, 0.839216, 0.807843, 1, 0.760784, 0.729412, 0.698039, 1, 0.682353, 0.65098, 0.619608, 1, 0.286275, 0.278431, 0.27451, 1, 0.109804, 0.109804, 0.109804, 1), PackedColorArray(0.690196, 0.937255, 0.592157, 1, 0.45472, 0.87717, 0.641265, 1, 0.331736, 0.804064, 0.577633, 1, 0.154214, 0.540531, 0.362657, 1, 0, 0.245883, 0.405983, 1, 0.361174, 0.506716, 0.00227803, 1), PackedColorArray(0.673032, 0.610248, 0.969442, 1, 0.561288, 0.549808, 0.899866, 1, 0.448717, 0.475258, 0.834246, 1, 0.391776, 0.43009, 0.735552, 1, 0.235181, 0.233105, 0.236194, 1, 0.473911, 0.444099, 0.428174, 1), PackedColorArray(0.958557, 0.525035, 0.589633, 1, 0.940873, 0.375986, 0.508606, 1, 0.808302, 0.322371, 0.497376, 1, 0.71653, 0.287066, 0.473955, 1, 0.235181, 0.233105, 0.236194, 1, 0.473911, 0.444099, 0.428174, 1)])
+current_palette = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
@@ -154,26 +171,33 @@ shape = SubResource("RectangleShape2D_hve3p")
 script = ExtResource("3_ftpat")
 PLAYER_SPRITE_PATH = NodePath("../AnimatedSprite2D")
 PLAYER_NODE_PATH = NodePath("..")
+JOYSTICK_MOVEMENT = true
 ENABLE_WALL_JUMPING = true
 ACTION_UP = "move_up"
 ACTION_DOWN = "move_down"
 ACTION_LEFT = "move_left"
 ACTION_RIGHT = "move_right"
+JUMP_BUFFER_TIMER = 0.12
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_aef60")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-position_smoothing_speed = 4.0
+position_smoothing_speed = 7.0
 script = ExtResource("2_gepih")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[node name="Barks" type="Node" parent="."]
+[node name="Barks" type="Node2D" parent="."]
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://cvj2uxnd36ph8")
 spawn_path = NodePath("../Barks")
+
+[node name="MarkerBottom" type="Marker2D" parent="."]
+position = Vector2(0, 8)
+gizmo_extents = 2.0

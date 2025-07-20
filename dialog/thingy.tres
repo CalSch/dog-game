@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dwuaspjlj8m7v"]
+
+[ext_resource type="Script" uid="uid://drjlhw1u6ywxp" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_ydjx3"]
+
+[resource]
+script = ExtResource("1_ydjx3")
+starts = {
+"door_interact": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(0, 0),
+"start_id": "door_interact"
+},
+&"1_1": {
+"dialogue": "The door is locked...",
+"offset": Vector2(320, -80),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 308),
+"speaker": ""
+}
+}
+variables = {}
+strays = Array[String]([])
+characters = ""

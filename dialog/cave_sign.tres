@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://oelute88p6tw"]
+
+[ext_resource type="Script" uid="uid://drjlhw1u6ywxp" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_re73s"]
+
+[resource]
+script = ExtResource("1_re73s")
+starts = {
+"main": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-32, 307),
+"start_id": "main"
+},
+&"1_1": {
+"dialogue": "Welcome to [i]Really Big Cave[/i] National Park!",
+"offset": Vector2(260, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+},
+&"1_2": {
+"dialogue": "-- [i]Currently under destruction[/i] --",
+"offset": Vector2(660, 180),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+}
+}
+variables = {}
+strays = Array[String]([])
+characters = ""

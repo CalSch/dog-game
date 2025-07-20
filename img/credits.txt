@@ -1,3 +1,5 @@
 beastlands_0.png: https://opengameart.org/content/beastlands
 spritesheet_white.png: https://opengameart.org/content/dog-spritesheets
 parallax_mountain_pack: https://opengameart.org/content/mountain-at-dusk-background
+Grassland_Terrain_Tileset.png: https://opengameart.org/content/multi-platformer-tileset-grassland-old-version
+village.png: https://opengameart.org/content/simple-nes-like-village-tiles

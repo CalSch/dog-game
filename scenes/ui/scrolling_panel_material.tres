@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c6n38sbisqsua"]
+
+[ext_resource type="Shader" uid="uid://boudb2wdgjyw1" path="res://shaders/scrolling_bg.gdshader" id="1_i1mo0"]
+[ext_resource type="Texture2D" uid="uid://c8w8qpswdm8dy" path="res://img/scrolling_bg.png" id="2_oqx42"]
+
+[resource]
+shader = ExtResource("1_i1mo0")
+shader_parameter/bg_color = Color(0.0633602, 0.0979116, 0.151433, 1)
+shader_parameter/fg_color = Color(0.263231, 0.304138, 0.353618, 1)
+shader_parameter/border_color = Color(0.497158, 0.545881, 0.853429, 1)
+shader_parameter/texture_size = 64.0
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/speed = 20.0
+shader_parameter/scroll_texture = ExtResource("2_oqx42")

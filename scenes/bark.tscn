@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvj2uxnd36ph8"]
+[gd_scene load_steps=5 format=3 uid="uid://cvj2uxnd36ph8"]
 
 [ext_resource type="Script" uid="uid://btddarmwckwax" path="res://scenes/bark.gd" id="1_n7h7y"]
-[ext_resource type="AudioStream" uid="uid://chgm6cj1ndyx0" path="res://yap.ogg" id="1_opluj"]
+[ext_resource type="AudioStream" uid="uid://chgm6cj1ndyx0" path="res://audio/sfx/yap.ogg" id="1_opluj"]
+[ext_resource type="AudioStream" uid="uid://x2ydgp6jjhkl" path="res://audio/sfx/Cuica-1.wav" id="3_0eu1x"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n7h7y"]
+playback_mode = 1
+random_pitch = 1.4
+streams_count = 2
+stream_0/stream = ExtResource("1_opluj")
+stream_1/stream = ExtResource("3_0eu1x")
+stream_1/weight = 0.01
 
 [node name="Bark" type="Node2D"]
 script = ExtResource("1_n7h7y")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_opluj")
+stream = SubResource("AudioStreamRandomizer_n7h7y")
 autoplay = true
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

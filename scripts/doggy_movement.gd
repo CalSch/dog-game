@@ -3,6 +3,9 @@ extends Node
 
 # From here: https://github.com/dragon1freak/PlatformerCharacterController/blob/main/src/scripts/platformer_controller.gd
 
+signal landed
+
+
 ## An extendable character for platforming games including features like coyote time,
 ## jump buffering, jump cancelling, sprinting, and wall jumping.  
 ##
@@ -101,6 +104,9 @@ var jumping := false
 
 func _physics_process(delta: float) -> void:
 	if mpp.is_local:
+		if Globals.game.ui.is_dialog_open():
+			PLAYER_SPRITE.play("idle")
+			return
 		physics_tick(delta)
 
 
@@ -244,6 +250,8 @@ func handle_jump(delta: float, move_direction: Vector2, jump_strength: float = 0
 		jumping = false
 
 	if PLAYER_BODY.is_on_floor() and PLAYER_BODY.velocity.y >= 0:
+		if not can_jump:
+			landed.emit()
 		can_jump = true
 		wall_jump = false
 		jumping = false
@@ -258,11 +266,14 @@ func apply_jump(move_direction: Vector2, jump_force: float = JUMP_FORCE, jump_di
 
 	if (wall_jump):
 		# Jump away from the direction the character is currently facing
-		PLAYER_BODY.velocity.x += jump_force * -move_direction.x
+		PLAYER_BODY.velocity.x += jump_force * -move_direction.x * 1.1
 		wall_jump = false
 		PLAYER_BODY.velocity.y = 0
 
+	print("jumping frfr")
 	PLAYER_BODY.velocity.y += jump_force * jump_direction
+	if wall_jump:
+		PLAYER_BODY.velocity.y *= 1.1
 
 
 ## If jump is released before reaching the top of the jump, the jump is cancelled using the [param JUMP_CANCEL_FORCE] and delta

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://csk1oit1dhgao"]
+
+[ext_resource type="Texture2D" uid="uid://b03uami5rm2hi" path="res://img/sign.png" id="1_kqko5"]
+[ext_resource type="Script" uid="uid://dcd3owwhxlp66" path="res://scenes/buildings/sign.gd" id="1_t1fgb"]
+[ext_resource type="Script" uid="uid://chtvtl18pvteu" path="res://scenes/components/interactable.gd" id="3_mnqxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1fgb"]
+size = Vector2(12, 20)
+
+[node name="Sign" type="Node2D"]
+script = ExtResource("1_t1fgb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-10, -32)
+texture = ExtResource("1_kqko5")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -10)
+shape = SubResource("RectangleShape2D_t1fgb")
+
+[node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("area")]
+script = ExtResource("3_mnqxl")
+area = NodePath("../Area2D")
