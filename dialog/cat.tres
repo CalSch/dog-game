@@ -71,7 +71,7 @@ nodes = {
 "speaker": "cat"
 },
 &"1_13": {
-"dialogue": "could you get me some coal from the mine? i need it for a potion ",
+"dialogue": "could you get me a lock of hair from the mine? i need it for a potion ",
 "offset": Vector2(2603.11, 309.799),
 "options": {
 0: {
