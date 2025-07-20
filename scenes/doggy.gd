@@ -37,7 +37,7 @@ func _player_ready():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(mpp.ma("bark")):
 		var b := bark_scene.instantiate()
-		print(mpp.player_id,"bark!")
+		print("bark!")
 		$Barks.add_child(b,true)
 		bark.emit()
 		Globals.bark_bump.rpc(position)

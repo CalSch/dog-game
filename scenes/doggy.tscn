@@ -130,7 +130,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hve3p"]
-size = Vector2(12, 7)
+size = Vector2(10, 7)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_aef60"]
 properties/0/path = NodePath(".:position")

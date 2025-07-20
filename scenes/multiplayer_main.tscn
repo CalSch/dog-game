@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx6tqbtqr1xel"]
+[gd_scene load_steps=7 format=3 uid="uid://cx6tqbtqr1xel"]
 
+[ext_resource type="Script" uid="uid://bo456s3yv61nk" path="res://scenes/multiplayer_main.gd" id="1_gcj2u"]
 [ext_resource type="Script" uid="uid://di3ug24dvx12h" path="res://addons/MultiplayCore/MultiPlay.gd" id="1_mamjp"]
 [ext_resource type="PackedScene" uid="uid://ctsrtq0g6kkm0" path="res://scenes/doggy.tscn" id="2_pyn6m"]
 [ext_resource type="PackedScene" uid="uid://du6kkgky6v1mv" path="res://scenes/game.tscn" id="3_gcj2u"]
@@ -7,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cpdxylp5b4lg7" path="res://scripts/autosave_timer.gd" id="5_pyn6m"]
 
 [node name="Multiplayer" type="Node2D"]
+script = ExtResource("1_gcj2u")
 
 [node name="MultiPlayCore" type="Node" parent="."]
 script = ExtResource("1_mamjp")

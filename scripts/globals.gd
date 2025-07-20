@@ -13,10 +13,10 @@ var save: SaveFile
 
 func _init() -> void:
 	print("globals inited")
-	if not FileAccess.file_exists("save"):
+	if not FileAccess.file_exists("user://save"):
 		save = SaveFile.new()
 	else:
-		save = SaveFile.load_from_file(FileAccess.open("save",FileAccess.READ))
+		save = SaveFile.load_from_file(FileAccess.open("user://save",FileAccess.READ))
 
 @rpc("any_peer","call_remote","reliable")
 func bark_bump(origin: Vector2):

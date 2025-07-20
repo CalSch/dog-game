@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://d081io411ia7u"]
 
-[ext_resource type="Script" uid="uid://drjlhw1u6ywxp" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_vttc7"]
+[ext_resource type="Script" uid="uid://bstdd2kff2dlp" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_vttc7"]
 
 [resource]
 script = ExtResource("1_vttc7")
@@ -124,7 +124,7 @@ nodes = {
 },
 &"1_17": {
 "dialogue": "highscore: {{!meows}}",
-"offset": Vector2(573.391, 711.586),
+"offset": Vector2(520, 720),
 "options": {
 0: {
 "condition": {},
@@ -153,14 +153,9 @@ nodes = {
 "condition": {},
 "link": &"1_3",
 "text": "woof"
-},
-3: {
-"condition": {},
-"link": &"1_17",
-"text": "highscore"
 }
 },
-"size": Vector2(300, 308),
+"size": Vector2(300, 343),
 "speaker": "cat"
 },
 &"1_3": {
@@ -173,7 +168,7 @@ nodes = {
 "text": "woof"
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300, 273),
 "speaker": "cat"
 },
 &"1_4": {
@@ -191,7 +186,7 @@ nodes = {
 "text": "ok bye"
 }
 },
-"size": Vector2(300, 273),
+"size": Vector2(300, 308),
 "speaker": "cat"
 },
 &"1_5": {
@@ -222,7 +217,7 @@ nodes = {
 "text": "weird"
 }
 },
-"size": Vector2(320, 280),
+"size": Vector2(320, 308),
 "speaker": "cat"
 },
 &"1_7": {
@@ -283,5 +278,5 @@ variables = {
 "value": 0
 }
 }
-strays = Array[String]([])
+strays = Array[String](["1_17"])
 characters = ""

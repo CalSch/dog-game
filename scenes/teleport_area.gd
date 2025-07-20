@@ -21,7 +21,7 @@ func _on_bark():
 	bark_count += 1
 	if bark_count == 5:
 		#teleport(Globals.player)
-		Globals.player.teleport(teleport_destination.global_position)
+		Globals.player.teleport(teleport_destination.global_position + Vector2(0,-1))
 
 
 func _on_body_entered(body: Node2D) -> void:
