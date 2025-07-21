@@ -7,6 +7,9 @@ extends AnimatedSprite2D
 		current_palette = v
 		update_palette()
 
+func _ready() -> void:
+	material = material.duplicate()
+
 func choose_random_palette():
 	current_palette = randi_range(0,palettes.size()-1)
 
